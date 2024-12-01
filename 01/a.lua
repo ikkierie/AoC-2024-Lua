@@ -6,7 +6,7 @@ for line in io.lines([[input.txt]]) do
     table.insert(rs, tonumber(r))
 end
 
-table.sort(ls, function(x, y) return x < y end)
+table.sort(ls)
 table.sort(rs)
 
 local sum = 0
