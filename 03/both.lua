@@ -2,9 +2,9 @@ local input   = io.lines([[input.txt]], "*all")()
 local enabled = true
 local a, b    = 0, 0
 for instr, args in input:gmatch("([%a']+)%(([%d,]*)%)") do
-    if instr:match("do$") then
+    if instr:match("do$") and args == "" then
         enabled = true
-    elseif instr:match("don't$") then
+    elseif instr:match("don't$") and args == "" then
         enabled = false
     elseif instr:match("mul$") then
         local x, y = args:match("^(%d+),(%d+)$")
