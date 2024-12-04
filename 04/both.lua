@@ -45,8 +45,8 @@ end
 
 do -- Part B
     local dirs = {
-        { point { -1,  1 }, point { 0, 0 }, point { 1, -1 }, },
-        { point { -1, -1 }, point { 0, 0 }, point { 1,  1 }, },
+        { { -1,  1 }, { 0, 0 }, { 1, -1 }, },
+        { { -1, -1 }, { 0, 0 }, { 1,  1 }, },
     }
 
     local count = 0
