@@ -19,7 +19,6 @@ do -- Part A
     }
 
     local seen  = {}
-    local count = 0
     for pos, char in pairs(grid) do
         for _, dir in pairs(dirs) do
             local chars = {}
@@ -44,7 +43,7 @@ do -- Part A
     print("Part A:", #set.from.keys(seen))
 end
 
-do -- Part b
+do -- Part B
     local dirs = {
         { point {-1, 1 }, point { 0, 0 }, point { 1,-1 }, },
         { point {-1,-1 }, point { 0, 0 }, point { 1, 1 }, },
