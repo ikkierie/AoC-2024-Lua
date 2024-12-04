@@ -59,12 +59,12 @@ do -- Part b
         for i, dir in pairs(dirs) do
             mas[i] = {}
             for _, offset in ipairs(dir) do
-                local pos = pos + offset
-                local c   = grid[pos]
-                if not c or not c:match("[MAS]") then
+                local new_pos  = pos + offset
+                local new_char = grid[new_pos]
+                if not new_char or not new_char:match("[MAS]") then
                     goto next_pos
                 end
-                table.insert(mas[i], c)
+                table.insert(mas[i], new_char)
             end
         end
         local mas1 = table.concat(mas[1])
