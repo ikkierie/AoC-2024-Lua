@@ -34,7 +34,7 @@ for line in io.lines([[input.txt]]) do
     if explore(input) then
         a = a + ans
     end
-    
+
     table.insert(input.ops, "concat")
     if explore(input)  then
         b = b + ans
