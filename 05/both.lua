@@ -5,8 +5,8 @@ for line in io.lines([[input.txt]]) do
     if line == "" then
         mode = mode + 1
     elseif mode == 1 then
-        local x, y = line:match("(%d+)|(%d+)")
-        x, y = tonumber(x), tonumber(y)
+        local x, y  = line:match("(%d+)|(%d+)")
+        x, y        = tonumber(x), tonumber(y)
         graph[x]    = graph[x] or {}
         graph[x][y] = true
     elseif mode == 2 then
