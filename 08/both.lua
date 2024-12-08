@@ -19,19 +19,15 @@ local a, b = {}, {}
 for _, ns in pairs(nodes) do
     for i = 2, #ns do
         for j = 1, i - 1 do
-            local dist = ns[i] - ns[j]
-            local p    = ns[j]
-            if grid[p - dist] then
-                a[p - dist] = true
-            end
+            local dist  = ns[i] - ns[j]
+            local p     = ns[j]
+            a[p - dist] = grid[p - dist]
             while grid[p] do
                 b[p] = true
                 p = p - dist
             end
-            p = ns[i]
-            if grid[p + dist] then
-                a[p + dist] = true
-            end
+            p           = ns[i]
+            a[p + dist] = grid[p + dist]
             while grid[p] do
                 b[p] = true
                 p = p + dist
