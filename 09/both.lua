@@ -50,7 +50,7 @@ do -- Part B
         for j = 1, #spaces do
             local space = spaces[j]
             if space.pos >= file.pos then
-                goto calculate_checksum
+                break
             end
             if file.len <= space.len then
                 for k = 1, file.len do
@@ -67,7 +67,6 @@ do -- Part B
         end
     end
 
-    ::calculate_checksum::
     local checksum = 0
     for i = 1, pos do
         checksum = checksum + (i - 1) * (memory[i] or 0)
