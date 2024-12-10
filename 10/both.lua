@@ -16,13 +16,11 @@ end
 local dirs = { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } }
 
 local function explore(start, part2)
-    local count   = 0
-    local seen    = { [start] = true }
-    local visited = {}
-    local queue   = { start }
+    local count = 0
+    local seen  = { [start] = true }
+    local queue = { start }
     while queue[1] do
         local cur    = table.remove(queue, 1)
-        visited[cur] = seen[cur]
         if grid[cur] == 9 then
             count = count + 1
         end
