@@ -15,7 +15,6 @@ local dirs = { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } }
 
 local function explore(start)
     local count = 0
-    local seen  = { [start] = true }
     local queue = { start }
     while queue[1] do
         local cur = table.remove(queue, 1)
@@ -26,7 +25,6 @@ local function explore(start)
             local next = cur + dir
             if grid[next] == grid[cur] + 1 then
                 table.insert(queue, next)
-                seen[next] = (seen[next] or 0) + 1
             end
         end
     end

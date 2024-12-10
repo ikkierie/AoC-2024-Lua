@@ -28,7 +28,7 @@ local function explore(start, part2)
             local next = cur + dir
             if (part2 or not seen[next]) and grid[next] == grid[cur] + 1 then
                 table.insert(queue, next)
-                seen[next] = (seen[next] or 0) + 1
+                seen[next] = true
             end
         end
     end
