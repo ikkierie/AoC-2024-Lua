@@ -18,7 +18,7 @@ local function explore(start)
     local seen  = { [start] = true }
     local queue = { start }
     while queue[1] do
-        local cur    = table.remove(queue, 1)
+        local cur = table.remove(queue, 1)
         if grid[cur] == 9 then
             count = count + 1
         end
