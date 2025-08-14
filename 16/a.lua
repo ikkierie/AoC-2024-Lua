@@ -35,14 +35,12 @@ for line in io.lines([[input.txt]]) do
     end
 end
 
-local visited = {}
-local seen    = { [start] = 0 }
-local queue   = pq.from { [start] = seen[start] }
+local seen  = { [start] = 0 }
+local queue = pq.from { [start] = seen[start] }
 while queue:peek() do
-    local cur    = queue:pop()
-    visited[cur] = seen[cur]
+    local cur = queue:pop()
     if cur.pos == goal then
-        print(visited[cur])
+        print(seen[cur])
         break
     end
     for turn = -1, 1 do
@@ -57,7 +55,7 @@ while queue:peek() do
             pos = next_pos,
             dir = dir,
         }
-        local cost = visited[cur] + (
+        local cost = seen[cur] + (
             (turn == 0)
                 and MOVE_COST
                 or  TURN_COST

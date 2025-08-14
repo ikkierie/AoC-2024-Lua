@@ -36,9 +36,8 @@ for line in io.lines([[input.txt]]) do
 end
 
 local paths
-local queue   = pq.from { [start] = 0 }
-local visited = {}
-local seen    = {
+local queue = pq.from { [start] = 0 }
+local seen  = {
     [start] = {
         cost = 0,
         paths = { { head = start } },
@@ -46,9 +45,8 @@ local seen    = {
 }
 while queue:peek() do
     local cur    = queue:pop()
-    visited[cur] = seen[cur]
     if cur.pos == goal then
-        paths = visited[cur].paths
+        paths = seen[cur].paths
         break
     end
     for turn = -1, 1 do
@@ -63,7 +61,7 @@ while queue:peek() do
             pos = next_pos,
             dir = dir,
         }
-        local cost = visited[cur].cost + (
+        local cost = seen[cur].cost + (
             (turn == 0)
                 and MOVE_COST
                 or  TURN_COST
@@ -75,7 +73,7 @@ while queue:peek() do
                 paths = {},
             }
         end
-        for _, path in ipairs(visited[cur].paths) do
+        for _, path in ipairs(seen[cur].paths) do
             table.insert(seen[next].paths, {
                 head = next,
                 tail = path,
