@@ -1,8 +1,8 @@
 global <const> io, ipairs, pairs, print, require, table
 
-local point  = require "point"
-local pq     = require "pq"
-local struct = require "struct"
+local const = require "const"
+local point = require "point"
+local pq    = require "pq"
 
 local <const> MOVE_COST, TURN_COST     = 1, 1000
 local <const> NORTH, EAST, SOUTH, WEST = 1, 2, 3, 4
@@ -27,7 +27,7 @@ for line in io.lines([[input.txt]]) do
         if chr == GOAL then
             goal = pos
         elseif chr == START then
-            start = struct {
+            start = const {
                 pos = pos,
                 dir = EAST,
             }
@@ -57,7 +57,7 @@ while queue:peek() do
         if grid[next_pos] == WALL then
             goto next_dir
         end
-        local next = struct {
+        local next = const {
             pos = next_pos,
             dir = dir,
         }
